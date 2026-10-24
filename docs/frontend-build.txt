@@ -1,0 +1,13 @@
+
+> car-inventory-web@1.0.0 build
+> tsc -b && vite build
+
+vite v6.4.5 building for production...
+transforming...
+✓ 1584 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.58 kB │ gzip:  0.36 kB
+dist/assets/index-yJ97Yy-l.css   19.20 kB │ gzip:  5.50 kB
+dist/assets/index-CIXsKyru.js   250.66 kB │ gzip: 77.53 kB
+✓ built in 971ms
