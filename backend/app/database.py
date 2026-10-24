@@ -115,27 +115,22 @@ class Store:
                 raise DomainError(404, "Vehicle not found")
 
     def purchase(self, vehicle_id: int):
+        return self._change_stock(vehicle_id, -1, "This vehicle is out of stock")
+
+    def restock(self, vehicle_id: int, quantity: int):
+        return self._change_stock(vehicle_id, quantity, "Stock limit exceeded")
+
+    def _change_stock(self, vehicle_id: int, delta: int, conflict_message: str):
+        """Serialize stock mutations without a read-then-write race."""
         with self.connection() as db:
             # Lock before both the conditional write and failure classification.
             db.execute("BEGIN IMMEDIATE")
             row = db.execute(
-                "UPDATE vehicles SET quantity=quantity-1 WHERE id=? AND quantity>0 RETURNING *", (vehicle_id,)
+                "UPDATE vehicles SET quantity=quantity+? WHERE id=? AND quantity+? BETWEEN 0 AND ? RETURNING *",
+                (delta, vehicle_id, delta, MAX_STOCK),
             ).fetchone()
             if row is not None:
                 return self.vehicle(row)
             if not db.execute("SELECT id FROM vehicles WHERE id=?", (vehicle_id,)).fetchone():
                 raise DomainError(404, "Vehicle not found")
-            raise DomainError(409, "This vehicle is out of stock")
-
-    def restock(self, vehicle_id: int, quantity: int):
-        with self.connection() as db:
-            db.execute("BEGIN IMMEDIATE")
-            row = db.execute(
-                "UPDATE vehicles SET quantity=quantity+? WHERE id=? AND quantity+?<=? RETURNING *",
-                (quantity, vehicle_id, quantity, MAX_STOCK),
-            ).fetchone()
-            if row is not None:
-                return self.vehicle(row)
-            if not db.execute("SELECT id FROM vehicles WHERE id=?", (vehicle_id,)).fetchone():
-                raise DomainError(404, "Vehicle not found")
-            raise DomainError(409, "Stock limit exceeded")
+            raise DomainError(409, conflict_message)

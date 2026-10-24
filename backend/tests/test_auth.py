@@ -4,7 +4,7 @@ import jwt
 import pytest
 from fastapi.testclient import TestClient
 from app.main import create_app
-from conftest import ACCOUNT, SECRET
+from tests.conftest import ACCOUNT, SECRET
 
 
 def test_registration_returns_token_and_customer_without_password(client, database):

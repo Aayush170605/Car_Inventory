@@ -12,3 +12,4 @@ htmlcov/
 playwright-report/
 test-results/
 .DS_Store
+*.tsbuildinfo

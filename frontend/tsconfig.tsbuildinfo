@@ -1,1 +1,0 @@
-{"root":["./src/app.tsx","./src/api.ts","./src/main.tsx","./src/test-setup.ts","./src/types.ts","./src/components/authscreen.tsx","./src/components/carart.tsx","./src/components/inventorydialog.tsx","./src/components/vehiclecard.test.tsx","./src/components/vehiclecard.tsx","./vite.config.ts"],"version":"5.9.3"}

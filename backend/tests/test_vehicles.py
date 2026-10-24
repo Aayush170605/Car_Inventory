@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from app.main import create_app
-from conftest import SECRET
+from tests.conftest import SECRET
 
 PAYLOAD = {"make": "Toyota", "model": "Camry", "category": "Sedan", "price": "25000.99", "quantity": 3}
 
