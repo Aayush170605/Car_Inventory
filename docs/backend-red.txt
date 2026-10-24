@@ -1,0 +1,231 @@
+FFFFFFFFEFFFFEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEFFFFFFFEEEEEE               [100%]
+==================================== ERRORS ====================================
+_________________ ERROR at setup of test_authenticated_profile _________________
+E   KeyError: 'access_token'
+_____ ERROR at setup of test_purchase_decreases_stock_and_rejects_sold_out _____
+E   KeyError: 'access_token'
+__________ ERROR at setup of test_concurrent_purchases_never_oversell __________
+E   KeyError: 'access_token'
+______________ ERROR at setup of test_restock_increases_quantity _______________
+E   sqlite3.OperationalError: no such table: users
+____________ ERROR at setup of test_invalid_restock_is_rejected[0] _____________
+E   sqlite3.OperationalError: no such table: users
+____________ ERROR at setup of test_invalid_restock_is_rejected[-1] ____________
+E   sqlite3.OperationalError: no such table: users
+___________ ERROR at setup of test_invalid_restock_is_rejected[1.5] ____________
+E   sqlite3.OperationalError: no such table: users
+___________ ERROR at setup of test_invalid_restock_is_rejected[True] ___________
+E   sqlite3.OperationalError: no such table: users
+_________ ERROR at setup of test_invalid_restock_is_rejected[1000001] __________
+E   sqlite3.OperationalError: no such table: users
+________________ ERROR at setup of test_stock_limit_is_enforced ________________
+E   sqlite3.OperationalError: no such table: users
+______________ ERROR at setup of test_missing_vehicle_returns_404 ______________
+E   sqlite3.OperationalError: no such table: users
+________________ ERROR at setup of test_create_list_and_persist ________________
+E   sqlite3.OperationalError: no such table: users
+_______________ ERROR at setup of test_update_details_and_delete _______________
+E   sqlite3.OperationalError: no such table: users
+__ ERROR at setup of test_search_filters_combine_and_use_boundaries[query0-1] __
+E   KeyError: 'access_token'
+__ ERROR at setup of test_search_filters_combine_and_use_boundaries[query1-1] __
+E   KeyError: 'access_token'
+__ ERROR at setup of test_search_filters_combine_and_use_boundaries[query2-1] __
+E   KeyError: 'access_token'
+__ ERROR at setup of test_search_filters_combine_and_use_boundaries[query3-1] __
+E   KeyError: 'access_token'
+__ ERROR at setup of test_search_filters_combine_and_use_boundaries[query4-0] __
+E   KeyError: 'access_token'
+__ ERROR at setup of test_search_filters_combine_and_use_boundaries[query5-0] __
+E   KeyError: 'access_token'
+__ ERROR at setup of test_search_filters_combine_and_use_boundaries[query6-0] __
+E   KeyError: 'access_token'
+__ ERROR at setup of test_search_filters_combine_and_use_boundaries[query7-0] __
+E   KeyError: 'access_token'
+__ ERROR at setup of test_search_filters_combine_and_use_boundaries[query8-0] __
+E   KeyError: 'access_token'
+_________ ERROR at setup of test_invalid_vehicle_is_rejected[changes0] _________
+E   sqlite3.OperationalError: no such table: users
+_________ ERROR at setup of test_invalid_vehicle_is_rejected[changes1] _________
+E   sqlite3.OperationalError: no such table: users
+_________ ERROR at setup of test_invalid_vehicle_is_rejected[changes2] _________
+E   sqlite3.OperationalError: no such table: users
+_________ ERROR at setup of test_invalid_vehicle_is_rejected[changes3] _________
+E   sqlite3.OperationalError: no such table: users
+_________ ERROR at setup of test_invalid_vehicle_is_rejected[changes4] _________
+E   sqlite3.OperationalError: no such table: users
+_________ ERROR at setup of test_invalid_vehicle_is_rejected[changes5] _________
+E   sqlite3.OperationalError: no such table: users
+_________ ERROR at setup of test_invalid_vehicle_is_rejected[changes6] _________
+E   sqlite3.OperationalError: no such table: users
+_________ ERROR at setup of test_invalid_vehicle_is_rejected[changes7] _________
+E   sqlite3.OperationalError: no such table: users
+_________ ERROR at setup of test_invalid_vehicle_is_rejected[changes8] _________
+E   sqlite3.OperationalError: no such table: users
+_________ ERROR at setup of test_invalid_vehicle_is_rejected[changes9] _________
+E   sqlite3.OperationalError: no such table: users
+___________ ERROR at setup of test_reversed_price_range_is_rejected ____________
+E   KeyError: 'access_token'
+_ ERROR at setup of test_customer_cannot_manage_inventory[post-/api/vehicles-payload0] _
+E   KeyError: 'access_token'
+_ ERROR at setup of test_customer_cannot_manage_inventory[put-/api/vehicles/1-payload1] _
+E   KeyError: 'access_token'
+_ ERROR at setup of test_customer_cannot_manage_inventory[delete-/api/vehicles/1-None] _
+E   KeyError: 'access_token'
+_ ERROR at setup of test_customer_cannot_manage_inventory[post-/api/vehicles/1/restock-payload3] _
+E   KeyError: 'access_token'
+________ ERROR at setup of test_update_cannot_silently_overwrite_stock _________
+E   sqlite3.OperationalError: no such table: users
+______________ ERROR at setup of test_missing_vehicle_returns_404 ______________
+E   sqlite3.OperationalError: no such table: users
+=================================== FAILURES ===================================
+E   assert 404 == 201
+     +  where 404 = <Response [404 Not Found]>.status_code
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:12: assert 404 == 201
+E   AssertionError: assert 404 == 409
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = post('/api/auth/register', json={'email': 'BUYER@example.com', 'password': 'SensiblePassword123!'})
+     +      where post = <starlette.testclient.TestClient object at 0x10beb4aa0>.post
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:26: AssertionError: assert 404 == 409
+E   assert 404 == 200
+     +  where 404 = <Response [404 Not Found]>.status_code
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:33: assert 404 == 200
+E   AssertionError: assert 404 == 422
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = post('/api/auth/register', json={'email': 'buyer@example.com', 'password': 'short'})
+     +      where post = <starlette.testclient.TestClient object at 0x10beb7b30>.post
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:43: AssertionError: assert 404 == 422
+E   AssertionError: assert 404 == 422
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = post('/api/auth/register', json={'email': 'invalid', 'password': 'SensiblePassword123!'})
+     +      where post = <starlette.testclient.TestClient object at 0x10beb4650>.post
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:43: AssertionError: assert 404 == 422
+E   AssertionError: assert 404 == 422
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = post('/api/auth/register', json={'email': 'buyer@example.com', 'password': 'SensiblePassword123!', 'role': 'admin'})
+     +      where post = <starlette.testclient.TestClient object at 0x10befd070>.post
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:43: AssertionError: assert 404 == 422
+E   assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:51: assert 404 == 401
+E   assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:51: assert 404 == 401
+E   AssertionError: assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = get('/api/auth/me', headers={})
+     +      where get = <starlette.testclient.TestClient object at 0x10beb4d10>.get
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:68: AssertionError: assert 404 == 401
+E   AssertionError: assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = get('/api/auth/me', headers={'Authorization': 'Bearer invalid'})
+     +      where get = <starlette.testclient.TestClient object at 0x10befefc0>.get
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:68: AssertionError: assert 404 == 401
+E   AssertionError: assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = get('/api/auth/me', headers={'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzkyODI4NzgxLCJpYXQiOjE3OTI4MjUxODEsImlzcyI6ImNhci1pbnZlbnRvcnkiLCJhdWQiOiJjYXItaW52ZW50b3J5LXdlYiJ9.X6TSCfP7w4Sfujt0kxRokat7qAzgwd07KgxAscImfGc'})
+     +      where get = <starlette.testclient.TestClient object at 0x10beb31a0>.get
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:68: AssertionError: assert 404 == 401
+E   Failed: DID NOT RAISE ValueError
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_auth.py:72: Failed: DID NOT RAISE ValueError
+E   AssertionError: assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = request('get', '/api/vehicles', json=None)
+     +      where request = <starlette.testclient.TestClient object at 0x10bf90950>.request
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_vehicles.py:62: AssertionError: assert 404 == 401
+E   AssertionError: assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = request('get', '/api/vehicles/search', json=None)
+     +      where request = <starlette.testclient.TestClient object at 0x10bf93170>.request
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_vehicles.py:62: AssertionError: assert 404 == 401
+E   AssertionError: assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = request('post', '/api/vehicles', json={'make': 'Toyota', 'model': 'Camry', 'category': 'Sedan', 'price': '25000.99', ...})
+     +      where request = <starlette.testclient.TestClient object at 0x10befd2b0>.request
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_vehicles.py:62: AssertionError: assert 404 == 401
+E   AssertionError: assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = request('put', '/api/vehicles/1', json={'make': 'Toyota', 'model': 'Camry', 'category': 'Sedan', 'price': '25000.99', ...})
+     +      where request = <starlette.testclient.TestClient object at 0x10beb6330>.request
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_vehicles.py:62: AssertionError: assert 404 == 401
+E   AssertionError: assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = request('delete', '/api/vehicles/1', json=None)
+     +      where request = <starlette.testclient.TestClient object at 0x10beb4c80>.request
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_vehicles.py:62: AssertionError: assert 404 == 401
+E   AssertionError: assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = request('post', '/api/vehicles/1/purchase', json={})
+     +      where request = <starlette.testclient.TestClient object at 0x10beabcb0>.request
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_vehicles.py:62: AssertionError: assert 404 == 401
+E   AssertionError: assert 404 == 401
+     +  where 404 = <Response [404 Not Found]>.status_code
+     +    where <Response [404 Not Found]> = request('post', '/api/vehicles/1/restock', json={'quantity': 1})
+     +      where request = <starlette.testclient.TestClient object at 0x10bf00200>.request
+/Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/backend/tests/test_vehicles.py:62: AssertionError: assert 404 == 401
+=============================== warnings summary ===============================
+../../../work/venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/work/venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR tests/test_auth.py::test_authenticated_profile - KeyError: 'access_token'
+ERROR tests/test_inventory.py::test_purchase_decreases_stock_and_rejects_sold_out
+ERROR tests/test_inventory.py::test_concurrent_purchases_never_oversell - Key...
+ERROR tests/test_inventory.py::test_restock_increases_quantity - sqlite3.Oper...
+ERROR tests/test_inventory.py::test_invalid_restock_is_rejected[0] - sqlite3....
+ERROR tests/test_inventory.py::test_invalid_restock_is_rejected[-1] - sqlite3...
+ERROR tests/test_inventory.py::test_invalid_restock_is_rejected[1.5] - sqlite...
+ERROR tests/test_inventory.py::test_invalid_restock_is_rejected[True] - sqlit...
+ERROR tests/test_inventory.py::test_invalid_restock_is_rejected[1000001] - sq...
+ERROR tests/test_inventory.py::test_stock_limit_is_enforced - sqlite3.Operati...
+ERROR tests/test_inventory.py::test_missing_vehicle_returns_404 - sqlite3.Ope...
+ERROR tests/test_vehicles.py::test_create_list_and_persist - sqlite3.Operatio...
+ERROR tests/test_vehicles.py::test_update_details_and_delete - sqlite3.Operat...
+ERROR tests/test_vehicles.py::test_search_filters_combine_and_use_boundaries[query0-1]
+ERROR tests/test_vehicles.py::test_search_filters_combine_and_use_boundaries[query1-1]
+ERROR tests/test_vehicles.py::test_search_filters_combine_and_use_boundaries[query2-1]
+ERROR tests/test_vehicles.py::test_search_filters_combine_and_use_boundaries[query3-1]
+ERROR tests/test_vehicles.py::test_search_filters_combine_and_use_boundaries[query4-0]
+ERROR tests/test_vehicles.py::test_search_filters_combine_and_use_boundaries[query5-0]
+ERROR tests/test_vehicles.py::test_search_filters_combine_and_use_boundaries[query6-0]
+ERROR tests/test_vehicles.py::test_search_filters_combine_and_use_boundaries[query7-0]
+ERROR tests/test_vehicles.py::test_search_filters_combine_and_use_boundaries[query8-0]
+ERROR tests/test_vehicles.py::test_invalid_vehicle_is_rejected[changes0] - sq...
+ERROR tests/test_vehicles.py::test_invalid_vehicle_is_rejected[changes1] - sq...
+ERROR tests/test_vehicles.py::test_invalid_vehicle_is_rejected[changes2] - sq...
+ERROR tests/test_vehicles.py::test_invalid_vehicle_is_rejected[changes3] - sq...
+ERROR tests/test_vehicles.py::test_invalid_vehicle_is_rejected[changes4] - sq...
+ERROR tests/test_vehicles.py::test_invalid_vehicle_is_rejected[changes5] - sq...
+ERROR tests/test_vehicles.py::test_invalid_vehicle_is_rejected[changes6] - sq...
+ERROR tests/test_vehicles.py::test_invalid_vehicle_is_rejected[changes7] - sq...
+ERROR tests/test_vehicles.py::test_invalid_vehicle_is_rejected[changes8] - sq...
+ERROR tests/test_vehicles.py::test_invalid_vehicle_is_rejected[changes9] - sq...
+ERROR tests/test_vehicles.py::test_reversed_price_range_is_rejected - KeyErro...
+ERROR tests/test_vehicles.py::test_customer_cannot_manage_inventory[post-/api/vehicles-payload0]
+ERROR tests/test_vehicles.py::test_customer_cannot_manage_inventory[put-/api/vehicles/1-payload1]
+ERROR tests/test_vehicles.py::test_customer_cannot_manage_inventory[delete-/api/vehicles/1-None]
+ERROR tests/test_vehicles.py::test_customer_cannot_manage_inventory[post-/api/vehicles/1/restock-payload3]
+ERROR tests/test_vehicles.py::test_update_cannot_silently_overwrite_stock - s...
+ERROR tests/test_vehicles.py::test_missing_vehicle_returns_404 - sqlite3.Oper...
+FAILED tests/test_auth.py::test_registration_returns_token_and_customer_without_password
+FAILED tests/test_auth.py::test_duplicate_email_is_case_insensitive - Asserti...
+FAILED tests/test_auth.py::test_login_and_persistence_across_app_instances - ...
+FAILED tests/test_auth.py::test_registration_rejects_invalid_input_and_role_escalation[payload0]
+FAILED tests/test_auth.py::test_registration_rejects_invalid_input_and_role_escalation[payload1]
+FAILED tests/test_auth.py::test_registration_rejects_invalid_input_and_role_escalation[payload2]
+FAILED tests/test_auth.py::test_bad_login_is_generic[payload0] - assert 404 =...
+FAILED tests/test_auth.py::test_bad_login_is_generic[payload1] - assert 404 =...
+FAILED tests/test_auth.py::test_missing_invalid_and_expired_tokens_are_rejected[None]
+FAILED tests/test_auth.py::test_missing_invalid_and_expired_tokens_are_rejected[invalid]
+FAILED tests/test_auth.py::test_missing_invalid_and_expired_tokens_are_rejected[eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzkyODI4NzgxLCJpYXQiOjE3OTI4MjUxODEsImlzcyI6ImNhci1pbnZlbnRvcnkiLCJhdWQiOiJjYXItaW52ZW50b3J5LXdlYiJ9.X6TSCfP7w4Sfujt0kxRokat7qAzgwd07KgxAscImfGc]
+FAILED tests/test_auth.py::test_weak_secret_is_rejected - Failed: DID NOT RAI...
+FAILED tests/test_vehicles.py::test_all_inventory_endpoints_require_login[get-/api/vehicles-None]
+FAILED tests/test_vehicles.py::test_all_inventory_endpoints_require_login[get-/api/vehicles/search-None]
+FAILED tests/test_vehicles.py::test_all_inventory_endpoints_require_login[post-/api/vehicles-payload2]
+FAILED tests/test_vehicles.py::test_all_inventory_endpoints_require_login[put-/api/vehicles/1-payload3]
+FAILED tests/test_vehicles.py::test_all_inventory_endpoints_require_login[delete-/api/vehicles/1-None]
+FAILED tests/test_vehicles.py::test_all_inventory_endpoints_require_login[post-/api/vehicles/1/purchase-payload5]
+FAILED tests/test_vehicles.py::test_all_inventory_endpoints_require_login[post-/api/vehicles/1/restock-payload6]
+19 failed, 1 warning, 39 errors in 0.21s

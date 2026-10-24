@@ -1,0 +1,125 @@
+
+> car-inventory-web@1.0.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v3.2.7 /Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/frontend
+
+ × src/components/VehicleCard.test.tsx > VehicleCard > disables purchases when stock is zero 38ms
+   → Unable to find an accessible element with the role "button" and name `/out of stock/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div />[39m
+  [36m</div>[39m
+[36m</body>[39m
+ × src/components/VehicleCard.test.tsx > VehicleCard > submits one purchase and disables it while pending 4ms
+   → Unable to find an accessible element with the role "button" and name `/purchase/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div />[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ✓ src/components/VehicleCard.test.tsx > VehicleCard > hides management controls from customers 3ms
+ × src/components/VehicleCard.test.tsx > VehicleCard > lets admins edit, restock and delete a vehicle 4ms
+   → Unable to find an accessible element with the role "button" and name `/edit/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div />[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/VehicleCard.test.tsx > VehicleCard > disables purchases when stock is zero
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/out of stock/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div />[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/VehicleCard.test.tsx:13:19
+     11|   it('disables purchases when stock is zero', () => {
+     12|     render(<VehicleCard {...props({ vehicle: { ...car, quantity: 0 } }…
+     13|     expect(screen.getByRole('button', { name: /out of stock/i })).toBe…
+       |                   ^
+     14|   });
+     15|   it('submits one purchase and disables it while pending', async () =>…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/components/VehicleCard.test.tsx > VehicleCard > submits one purchase and disables it while pending
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/purchase/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div />[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/VehicleCard.test.tsx:18:34
+     16|     const p = props();
+     17|     const { rerender } = render(<VehicleCard {...p} />);
+     18|     await userEvent.click(screen.getByRole('button', { name: /purchase…
+       |                                  ^
+     19|     expect(p.onPurchase).toHaveBeenCalledExactlyOnceWith(car);
+     20|     rerender(<VehicleCard {...p} busy />);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/components/VehicleCard.test.tsx > VehicleCard > lets admins edit, restock and delete a vehicle
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/edit/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div />[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/VehicleCard.test.tsx:32:34
+     30|     const p = props({ admin: true });
+     31|     render(<VehicleCard {...p} />);
+     32|     await userEvent.click(screen.getByRole('button', { name: /edit/i }…
+       |                                  ^
+     33|     await userEvent.click(screen.getByRole('button', { name: /restock/…
+     34|     await userEvent.click(screen.getByRole('button', { name: /delete/i…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 1 passed (4)
+   Start at  14:29:15
+   Duration  715ms (transform 28ms, setup 93ms, collect 39ms, tests 48ms, environment 272ms, prepare 33ms)
+
