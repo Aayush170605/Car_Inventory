@@ -3,13 +3,16 @@ from typing import Annotated
 from decimal import Decimal
 import jwt
 from dotenv import load_dotenv
-from fastapi import Depends, FastAPI, HTTPException, Query, Response
+from fastapi import Depends, FastAPI, HTTPException, Path, Query, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from fastapi.staticfiles import StaticFiles
 from .database import DomainError, Store
 from .models import Credentials, Restock, SessionOut, UserOut, VehicleCreate, VehicleDetails, VehicleOut
 from .security import create_token, dummy_hash, password_hasher, token_user_id
+
+VehicleId = Annotated[int, Path(gt=0, le=2**63 - 1)]
 
 
 def create_app(db_path=None, secret=None):
@@ -89,20 +92,23 @@ def create_app(db_path=None, secret=None):
         return store.create_vehicle(data)
 
     @app.put("/api/vehicles/{vehicle_id}", response_model=VehicleOut, dependencies=[Depends(admin)])
-    def update_vehicle(vehicle_id: int, data: VehicleDetails):
+    def update_vehicle(vehicle_id: VehicleId, data: VehicleDetails):
         return store.update_vehicle(vehicle_id, data)
 
     @app.delete("/api/vehicles/{vehicle_id}", status_code=204, dependencies=[Depends(admin)])
-    def delete_vehicle(vehicle_id: int):
+    def delete_vehicle(vehicle_id: VehicleId):
         store.delete_vehicle(vehicle_id)
         return Response(status_code=204)
 
     @app.post("/api/vehicles/{vehicle_id}/purchase", response_model=VehicleOut, dependencies=[Depends(current_user)])
-    def purchase(vehicle_id: int):
+    def purchase(vehicle_id: VehicleId):
         return store.purchase(vehicle_id)
 
     @app.post("/api/vehicles/{vehicle_id}/restock", response_model=VehicleOut, dependencies=[Depends(admin)])
-    def restock(vehicle_id: int, data: Restock):
+    def restock(vehicle_id: VehicleId, data: Restock):
         return store.restock(vehicle_id, data.quantity)
 
+    if frontend_dist := os.getenv("FRONTEND_DIST"):
+        # API routes precede the static mount, preserving authentication and 404s.
+        app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="frontend")
     return app

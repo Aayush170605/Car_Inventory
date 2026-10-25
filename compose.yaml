@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      JWT_SECRET: "${JWT_SECRET:?Set JWT_SECRET before starting Docker Compose}"
+      FRONTEND_ORIGIN: "http://localhost:8000"
+    volumes:
+      - inventory-data:/data
+    restart: unless-stopped
+
+volumes:
+  inventory-data:

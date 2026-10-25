@@ -1,0 +1,3 @@
+docker compose config --quiet: exit 0
+Configuration syntax and variable interpolation validated.
+Docker image was not built or run: Docker Engine is unavailable.

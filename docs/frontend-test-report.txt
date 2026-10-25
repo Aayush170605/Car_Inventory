@@ -1,0 +1,16 @@
+
+> car-inventory-web@1.0.0 test
+> vitest run
+
+
+ RUN  v3.2.7 /Users/aayushsharda/Documents/Codex/2026-10-24/i-x20/outputs/car-inventory/frontend
+
+ ✓ src/api.test.ts (6 tests) 7ms
+ ✓ src/components/VehicleCard.test.tsx (4 tests) 124ms
+ ✓ src/App.test.tsx (3 tests) 526ms
+
+ Test Files  3 passed (3)
+      Tests  13 passed (13)
+   Start at  14:49:04
+   Duration  1.45s (transform 134ms, setup 411ms, collect 326ms, tests 657ms, environment 1.11s, prepare 144ms)
+

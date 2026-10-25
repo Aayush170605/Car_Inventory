@@ -1,0 +1,3 @@
+PASS: Built React index and all referenced bundled assets served by FastAPI.
+PASS: Health API available; vehicle API still requires authentication.
+Test used a temporary file-backed database and generated test secret.
